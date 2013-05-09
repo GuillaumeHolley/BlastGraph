@@ -67,15 +67,15 @@ The command to launch BlastGraph is :
 
 	BlastGraph [name_file_graph.xgmml] [name_query_file.fasta] [node_attribute] [edge_attribute] [seed_size] [overlap_size] [-options] 
 
-[node_attribute] : the name of the attribute in the XGMML file (in the node marker) that contains the sequence of each node 
-[edge_attribute] : the name of the attribute in the XGMML file (in the node marker) that contains the two letters indicating if the sequences of the source node and target node have to be read in forward (F) or reverse-complement (R) 
-[seed_size] is the seed size used to anchor query sequences on the graph 
-[overlap_size] is the size of the overlaps between the sequences source and target nodes 
+* [node_attribute] : the name of the attribute in the XGMML file (in the node marker) that contains the sequence of each node 
+* [edge_attribute] : the name of the attribute in the XGMML file (in the node marker) that contains the two letters indicating if the sequences of the source node and target node have to be read in forward (F) or reverse-complement (R) 
+* [seed_size] is the seed size used to anchor query sequences on the graph 
+* [overlap_size] is the size of the overlaps between the sequences source and target nodes 
 
 options : 
-[-r reverse_complement_attribute] : take into account the reverse-complement identified by reverse_complement_attribute in the graph. By default, compute the reverse-complement of each sequence in each node identified by node_attribute. 
-[-x value] : use this value as treshold for the X-DROP heuristic. 0 by default. 
-[-l value] : use this value as the maximum number of characters per line in the query file. 120 by default. 
+* [-r reverse_complement_attribute] : take into account the reverse-complement identified by reverse_complement_attribute in the graph. By default, compute the reverse-complement of each sequence in each node identified by node_attribute. 
+* [-x value] : use this value as treshold for the X-DROP heuristic. 0 by default. 
+* [-l value] : use this value as the maximum number of characters per line in the query file. 120 by default. 
 
 USE CASE
 --------
@@ -99,23 +99,35 @@ The result displayed is :
 >Indexing graph done 
 > 
 >Time after indexing graph : 
+> 
 >Real time :	 96 cs 
->User time :	 92 cs 
+> 
+>User time :	 92 cs
+> 
 >System time :	 2 cs 
 > 
 >One or more alignments found for query 0 
 > 
 >In node 1753 
+> 
 >In node 12831 
+> 
 >In node 45228 
->In node 47776 
+> 
+>In node 47776
+> 
 >In node 35548 
+> 
 >In node 4986 
 > 
 >Number of queries found : 1 
+> 
 >Number of queries not found : 0 
 > 
 >Time after aligning graph : 
+> 
 >Real time :	 97 cs 
+> 
 >User time :	 92 cs 
+> 
 >System time :	 2 cs
