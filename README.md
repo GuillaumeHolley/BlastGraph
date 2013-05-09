@@ -1,4 +1,5 @@
 BlastGraph
+==========
 Intensive approximate pattern matching in a de-Bruijn graph or a sequence graph. Ver 2.0. 
 User's guide, Ver 2.0 – May 2013 
 
@@ -7,6 +8,7 @@ Contact: pierre.peterlongo@inria.fr
 
 
 LICENCE
+-------
 
 Copyright INRIA, contributors Holley and Peterlongo 
 
@@ -18,17 +20,19 @@ In this respect, the user's attention is drawn to the risks associated with load
 Users are therefore encouraged to load and test the software's suitability as regards their requirements in conditions enabling the security of their systems and/or data to be ensured and, more generally, to use and operate it in the same conditions as regards security. 
 The fact that you are presently reading this means that you have had knowledge of the CeCILL license and that you accept its terms. 
 
-USAGE 
+USAGE
+-----
 
 BlastGraph may be used for (not limited to) : 
-- Detect patterns in a de-Bruijn graph or a sequence graph
-- Check the presence of homologs of a set of sequences in a de-Bruijn graph or a sequence graph 
-... 
+* Detect patterns in a de-Bruijn graph or a sequence graph
+* Check the presence of homologs of a set of sequences in a de-Bruijn graph or a sequence graph 
+* ... 
 
 Please refer to the original article for more details :
 Guillaume Holley, Pierre Peterlongo. BlastGraph: intensive approximate pattern matching in string graphs and de-Bruijn graphs. PSC 2012, Aug 2012, Prague, Czech Republic
 
 IN/OUT IN FEW WORDS
+-------------------
 
 Initially, BlastGraph takes two files as input : 
 - graph.xgmml : contains a de-Bruijn graph or a sequence graph in XGMML format. XGMML format is an XML format specialized for graphs
@@ -42,72 +46,76 @@ The execution time increases with the number of query sequence.
 
 In output, Blastree displays for each query sequence, the paths (nodes ID) where the query is matching. 
 
-DOWNLOAD 
+DOWNLOAD
+--------
 
 http://alcovna.genouest.org/blastgraph/ 
 
 INSTALLATION
+------------
 
 BlastGraph runs on every Linux OS with GCC installed. It has been tested on Fedora-14 Laughlin 64bits and Ubuntu 12.10 Quantal Quetzal 64bits. 
 
-« tar xvzf BlastGraph.tar.gz » to decompress the file
-« cd ./BlastGraph » to enter in the newly decompress BlastGraph folder
-« sudo make » to compile BlastGraph (can take several minutes)
+* « tar xvzf BlastGraph.tar.gz » to decompress the file
+* « cd ./BlastGraph » to enter in the newly decompress BlastGraph folder
+* « sudo make » to compile BlastGraph (can take several minutes)
 
 RUN
+---
 
 The command to launch BlastGraph is :
 
-BlastGraph <name_file_graph.xgmml> <name_query_file.fasta> <node_attribute> <edge_attribute> <seed_size> <overlap_size> [-options] 
+	BlastGraph [name_file_graph.xgmml] [name_query_file.fasta] [node_attribute] [edge_attribute] [seed_size] [overlap_size] [-options] 
 
-<node_attribute> : the name of the attribute in the XGMML file (in the <node> marker) that contains the sequence of each node 
-<edge_attribute> : the name of the attribute in the XGMML file (in the <node> marker) that contains the two letters indicating if the sequences of the source node and target node have to be read in forward (F) or reverse-complement (R) 
-<seed_size> is the seed size used to anchor query sequences on the graph 
-<overlap_size> is the size of the overlaps between the sequences source and target nodes 
+[node_attribute] : the name of the attribute in the XGMML file (in the node marker) that contains the sequence of each node 
+[edge_attribute] : the name of the attribute in the XGMML file (in the node marker) that contains the two letters indicating if the sequences of the source node and target node have to be read in forward (F) or reverse-complement (R) 
+[seed_size] is the seed size used to anchor query sequences on the graph 
+[overlap_size] is the size of the overlaps between the sequences source and target nodes 
 
-[-options] : 
--r reverse_complement_attribute : take into account the reverse-complement identified by reverse_complement_attribute in the graph. By default, compute the reverse-complement of each sequence in each node identified by node_attribute. 
--x value : use this value as treshold for the X-DROP heuristic. 0 by default. 
--l value : use this value as the maximum number of characters per line in the query file. 120 by default. 
+options : 
+[-r reverse_complement_attribute] : take into account the reverse-complement identified by reverse_complement_attribute in the graph. By default, compute the reverse-complement of each sequence in each node identified by node_attribute. 
+[-x value] : use this value as treshold for the X-DROP heuristic. 0 by default. 
+[-l value] : use this value as the maximum number of characters per line in the query file. 120 by default. 
 
 USE CASE
+--------
 
 The graph file used for this use case is graph10000.xgmml situed in /bin/Debug in the BlastGraph package. The query file is a FASTA file that contains the two first lines (one sequence) of the file queries10000.fasta in /bin/Debug in the BlastGraph package.
 
-./BlastGraph graph10000.xgmml query1.fasta label label 20 30 
+	./BlastGraph graph10000.xgmml query1.fasta label label 20 30 
 
 The result displayed is :
 
-Number of nucleotides in the graph : 1849460 
-
-Number of nodes in the graph : 59660 
-
-Number of edges in the graph : 99516 
-
-Parsing XGMML file done 
-
-Parsing FASTA file done 
-
-Indexing graph done 
-
-Time after indexing graph : 
-Real time :	 96 cs 
-User time :	 92 cs 
-System time :	 2 cs 
-
-One or more alignments found for query 0 
-
-In node 1753 
-In node 12831 
-In node 45228 
-In node 47776 
-In node 35548 
-In node 4986 
------ 
-Number of queries found : 1 
-Number of queries not found : 0 
-
-Time after aligning graph : 
-Real time :	 97 cs 
-User time :	 92 cs 
-System time :	 2 cs
+>Number of nucleotides in the graph : 1849460 
+> 
+>Number of nodes in the graph : 59660 
+> 
+>Number of edges in the graph : 99516 
+> 
+>Parsing XGMML file done 
+> 
+>Parsing FASTA file done 
+> 
+>Indexing graph done 
+> 
+>Time after indexing graph : 
+>Real time :	 96 cs 
+>User time :	 92 cs 
+>System time :	 2 cs 
+> 
+>One or more alignments found for query 0 
+> 
+>In node 1753 
+>In node 12831 
+>In node 45228 
+>In node 47776 
+>In node 35548 
+>In node 4986 
+> 
+>Number of queries found : 1 
+>Number of queries not found : 0 
+> 
+>Time after aligning graph : 
+>Real time :	 97 cs 
+>User time :	 92 cs 
+>System time :	 2 cs
